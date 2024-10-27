@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wu.service.mapper.UserGroupMapper">
+    <resultMap id="userGroupResultMap" type="com.wu.domain.UserGroup">
+        <!-- 将数据库表的 group_id 列映射到 UserGroup 对象的 group_id 属性 -->
+        <id property="group_id" column="group_id" />
+        <!-- 将数据库表的 master_id 列映射到 UserGroup 对象的 master_id 属性 -->
+        <result property="master_id" column="master_id" />
+    </resultMap>
+
+    <!-- 根据 group_id 查询 UserGroup 对象 -->
+    <select id="selectUserGroupByGroupId" resultMap="userGroupResultMap">
+        SELECT * FROM user_group WHERE group_id = #{group_id}
+    </select>
+</mapper>
